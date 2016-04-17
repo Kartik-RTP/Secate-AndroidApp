@@ -7,4 +7,4 @@
     <item android:state_pressed="true"
         android:drawable="@drawable/button_pressed"/>
 
-</selector><!-- From: file:/C:/Users/Rahul/Downloads/SecateTest_alternativeVersion_to_be_scrapped_later_on-master/app/src/main/res/drawable-hdpi/roundbutton.xml -->
+</selector><!-- From: file:/home/kartik/Desktop/SecateTest_alternativeVersion_to_be_scrapped_later_on-master/app/src/main/res/drawable-hdpi/roundbutton.xml -->

@@ -7,7 +7,7 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 
 public class StudentsDataSource {
-    private SQLiteDatabase database;
+    private SQLiteDatabase mDatabase;
     private MySQLiteHelper dbHelper;
     private static final String TABLE_NAME = "in_out_table";
     public StudentsDataSource(Context context) {
@@ -15,7 +15,7 @@ public class StudentsDataSource {
     }
 
     public void open() throws SQLException {
-        database = dbHelper.getWritableDatabase();
+        mDatabase = dbHelper.getWritableDatabase();
     }
 
     public void close() {
@@ -29,36 +29,29 @@ public class StudentsDataSource {
         cv.put("time", time);
         cv.put("place", place);
 
-        database.insert("in_out_table", null, cv);
+        mDatabase.insert("in_out_table", null, cv);
     }
 
     /*public void delete_entry(String time){
-        database.delete(TABLE_NAME,,)
+        mDatabase.delete(TABLE_NAME,,)
     }*/
 
     public Cursor view_entry() {
 
         String arr = null;
         String ss[] = null;
-        Cursor c = database.rawQuery("select * from in_out_table ", null);
+        Cursor c = mDatabase.rawQuery("select * from in_out_table ", null);
         int i = 0;
-        // while (c.moveToNext()) {
-        // arr = c.getString(c.getColumnIndex("entry_no"));
-        // arr=Integer.toString(c.getCount());
-        // ss[i]=c.getString(c.getColumnIndex("entry_no"));
-        // }
-        //String id[] = new String[c.getCount()];
-        //i = 0;
-        ///if (c != null && c.getCount() > 0) {
-        //c.moveToFirst();
-        //	do {
-        //	id[i] = c.getString(c.getColumnIndex("entry_no"));
-        //i++;
-        //	} while (c.moveToNext());
-        //c.close();
 
-
-        //}
         return c;
+    }
+
+    //Kartik
+    public void deleteTopEntry(){
+        //currently deleting entire table....to be corrected
+        mDatabase.delete(TABLE_NAME,
+                null,
+                null
+                );
     }
 }

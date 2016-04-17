@@ -2,34 +2,51 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#50f687">
+    android:background="#E57373"
+                android:alpha="1"
+                android:gravity="center">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="CUSTOM DIALOG"
-        android:id="@+id/textView"
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:textSize="12sp"/>
+        android:alpha="1"
+        android:background="#E57373">
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/destinationEditText"
-        android:layout_marginTop="41dp"
-        android:text="enter destination"
-        android:layout_below="@+id/textView"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Enter Destination"
+            android:id="@+id/textView"
+            android:textSize="24sp"
+            android:textColor="@android:color/white"
+            android:alpha="0.7"
+            android:layout_margin="10dp"/>
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="enter destination"
-        android:id="@+id/destinationButton"
-        android:layout_centerVertical="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"/>
-</RelativeLayout><!-- From: file:/C:/Users/Rahul/Downloads/SecateTest_alternativeVersion_to_be_scrapped_later_on-master/app/src/main/res/layout/fragment_home_out.xml -->
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/destinationEditText"
+            android:layout_marginTop="25dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="25dp"/>
+
+        <Button
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:text="OK"
+            android:id="@+id/destinationButton"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:background="@drawable/oval_try"
+            android:textColor="#FFFFFF"
+            android:alpha="2"
+            android:layout_gravity="center_horizontal"/>
+
+    </LinearLayout>
+</RelativeLayout><!-- From: file:/home/kartik/Desktop/SecateTest_alternativeVersion_to_be_scrapped_later_on-master/app/src/main/res/layout/fragment_home_out.xml -->

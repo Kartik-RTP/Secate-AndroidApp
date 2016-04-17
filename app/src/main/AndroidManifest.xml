@@ -13,10 +13,10 @@
         android:allowBackup="true"
         android:fullBackupContent="false"
         android:hardwareAccelerated="true"
-        android:icon="@drawable/icon"
+        android:icon="@mipmap/ic_launcher"
         android:label="MultiTrackerApp"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat">
+        android:theme="@style/AppTheme">
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
@@ -42,7 +42,7 @@
             android:label="@string/title_activity_home"></activity>
         <receiver
             android:name=".AlarmTask"
-            android:process="remote"/>
+            android:process=":remote"/>
         <service
             android:name=".BackgroundService"
             android:exported="false"/>

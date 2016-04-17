@@ -39,10 +39,10 @@ public class BackgroundService extends IntentService {
         int i=0;
         String s = "";
         Cursor c = datasource.view_entry();
-        String id[] = new String[c.getCount()];
-        String dt[] = new String[c.getCount()];
-        String ti[] = new String[c.getCount()];
-        String pl[] = new String[c.getCount()];
+        String id[] = new String[c.getCount()];/////////////////////////////////////////
+        String dt[] = new String[c.getCount()];///////////////////////////////////////
+        String ti[] = new String[c.getCount()];////////////////////////////////////////
+        String pl[] = new String[c.getCount()];//////////////////////////////////////////
         if (c != null && c.getCount() > 0) {
             c.moveToFirst();
             do {

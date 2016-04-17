@@ -4,14 +4,12 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.support.v4.app.DialogFragment;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.google.android.gms.samples.vision.barcodereader.BarcodeCaptureActivity;
 import com.google.android.gms.samples.vision.barcodereader.R;
@@ -42,7 +40,19 @@ public class PlaceDialogBox extends DialogFragment {
 
         mDestinationButton= (Button) view.findViewById(R.id.destinationButton);
         mDestinationEditText = (EditText) view.findViewById(R.id.destinationEditText);
+        barcodeValue = getArguments().getString("Entry");
+        date = getArguments().getString("date");
+        time = getArguments().getString("time");
 
+        mDestinationButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mDestination = mDestinationEditText.getText().toString();
+                BarcodeCaptureActivity.getInstance().insert(barcodeValue, date, time, mDestination);
+
+            }
+        });
+        /*
         builder.setPositiveButton("Send", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -53,7 +63,7 @@ public class PlaceDialogBox extends DialogFragment {
 
             }
         });
-
+        */
 
         /*mDestinationButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,5 +80,29 @@ public class PlaceDialogBox extends DialogFragment {
 
         AlertDialog dialog = builder.create();
         return dialog;
+    }
+    /*
+    @Override
+    public void onResume() {
+        int width = getResources().getDimensionPixelSize(R.dimen.fragment_width);
+        int height = getResources().getDimensionPixelSize(R.dimen.fragment_height);
+        getDialog().getWindow().setLayout(width, height);
+    }*/
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        // safety check
+        if (getDialog() == null) {
+            return;
+        }
+        //getDialog().getWindow().requestFeature(Window.FEATURE_NO_TITLE);
+
+        int dialogWidth = getResources().getDimensionPixelSize(R.dimen.fragment_place_width); // specify a value here
+        int dialogHeight = getResources().getDimensionPixelSize(R.dimen.fragment_place_height); // specify a value here
+
+        getDialog().getWindow().setLayout(dialogWidth, dialogHeight);
+
+        // ... other stuff you want to do in your onStart() method
     }
 }

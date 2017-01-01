@@ -34,7 +34,7 @@
         android:fullBackupContent="false"
         android:hardwareAccelerated="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="MultiTrackerApp"
+        android:label="Secate"
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
         <meta-data
@@ -45,8 +45,10 @@
             android:value="barcode" />
 
         <activity
-            android:name="com.google.android.gms.samples.vision.barcodereader.MainActivity"
-            android:label="@string/title_activity_main" >
+            android:name="com.google.android.gms.samples.vision.barcodereader.ui.MainActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="@string/title_activity_main"
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -54,21 +56,25 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.google.android.gms.samples.vision.barcodereader.BarcodeCaptureActivity"
-            android:label="Read Barcode" />
+            android:name="com.google.android.gms.samples.vision.barcodereader.helper.barcode.BarcodeCaptureActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="Read Barcode"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.google.android.gms.samples.vision.barcodereader.HomeActivity"
-            android:label="@string/title_activity_home" />
+            android:name="com.google.android.gms.samples.vision.barcodereader.ui.HomeActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="@string/title_activity_home"
+            android:screenOrientation="portrait" />
 
         <receiver
-            android:name="com.google.android.gms.samples.vision.barcodereader.AlarmTask"
+            android:name="com.google.android.gms.samples.vision.barcodereader.helper.service.AlarmTask"
             android:process=":remote" />
 
         <service
-            android:name="com.google.android.gms.samples.vision.barcodereader.BackgroundService"
+            android:name="com.google.android.gms.samples.vision.barcodereader.helper.service.BackgroundService"
             android:exported="false" />
 
-        <receiver android:name="com.google.android.gms.samples.vision.barcodereader.BootBroadcastReceiver" >
+        <receiver android:name="com.google.android.gms.samples.vision.barcodereader.helper.service.BootBroadcastReceiver" >
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
